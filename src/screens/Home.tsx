@@ -19,8 +19,11 @@ export default function Home({ navigation }: Props) {
 
   return (
     <View style={styles.container}>
-      <Button title="Adicionar Tarefa" onPress={() => navigation.navigate('AddTask')} />
-      
+      <Button
+        title="Adicionar Tarefa"
+        onPress={() => navigation.navigate('AddTask')}
+      />
+
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id}
