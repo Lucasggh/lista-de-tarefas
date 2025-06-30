@@ -2,28 +2,31 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, Task } from '../type';
-import { v4 as uuidv4 } from 'uuid';
+import { useTasks } from '../TaskContext/TaskContext';
+import uuid from 'react-native-uuid';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddTask'>;
 
 export default function AddTask({ navigation }: Props) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const { addTask } = useTasks();
 
   const handleSave = () => {
     if (!title.trim()) {
-      Alert.alert("Erro", "O título não pode estar vazio.");
+      Alert.alert('Erro', 'O título não pode estar vazio.');
       return;
     }
 
     const newTask: Task = {
-      id: uuidv4(),
+      id: String(uuid.v4()),
       title,
       description,
-      completed: false
+      completed: false,
     };
 
-    navigation.navigate('Home', { newTask });
+    addTask(newTask);
+    navigation.goBack(); // Volta para a tela Home
   };
 
   return (

@@ -1,37 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { View, FlatList, StyleSheet, Button, Text, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, Button, FlatList, Alert, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList, Task } from '../type';
+import { RootStackParamList } from '../type';
 import TaskCard from '../components/TaskCard';
+import { useTasks } from '../TaskContext/TaskContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
-export default function Home({ navigation, route }: Props) {
-  const [tasks, setTasks] = useState<Task[]>([]);
+export default function Home({ navigation }: Props) {
+  const { tasks, toggleTask, removeTask, clearTasks } = useTasks();
 
-  
-  useEffect(() => {
-    if (route.params?.newTask) {
-      setTasks((prev) => [...prev, route.params!.newTask!]);
-    }
-  }, [route.params?.newTask]);
-
-  const toggleTaskCompletion = (id: string) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-
-  const removeTask = (id: string) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
-  };
-
-  const clearAll = () => {
-    Alert.alert("Limpar todas?", "Você tem certeza?", [
-      { text: "Cancelar", style: "cancel" },
-      { text: "OK", onPress: () => setTasks([]) }
+  const handleClearAll = () => {
+    Alert.alert('Limpar tudo?', 'Essa ação é irreversível.', [
+      { text: 'Cancelar', style: 'cancel' },
+      { text: 'OK', onPress: clearTasks },
     ]);
   };
 
@@ -46,21 +28,28 @@ export default function Home({ navigation, route }: Props) {
           <TaskCard
             task={item}
             onDelete={() => removeTask(item.id)}
-            onToggle={() => toggleTaskCompletion(item.id)}
+            onToggle={() => toggleTask(item.id)}
             onPress={() => navigation.navigate('Details', { task: item })}
           />
         )}
-        ListEmptyComponent={<Text style={styles.empty}>Nenhuma tarefa adicionada</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>Nenhuma tarefa ainda</Text>}
       />
 
       {tasks.length > 0 && (
-        <Button title="Limpar todas" onPress={clearAll} color="red" />
+        <Button title="Limpar tudo" color="red" onPress={handleClearAll} />
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
-  empty: { marginTop: 20, textAlign: 'center', color: '#777' },
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  empty: {
+    textAlign: 'center',
+    marginTop: 20,
+    color: '#555',
+  },
 });
