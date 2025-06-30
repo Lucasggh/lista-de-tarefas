@@ -5,6 +5,11 @@ import Home from './src/screens/Home';
 import AddTask from './src/screens/AddTask';
 import Details from './src/screens/Details';
 import { RootStackParamList } from './src/type';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+
+
+const id = uuidv4();
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
