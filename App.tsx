@@ -26,8 +26,21 @@ export default function App() {
               headerTitleAlign: 'center',
             }}
           />
-          <Stack.Screen name="AddTask" component={AddTask} options={{ title: 'Adicionar Tarefa' }} />
-          <Stack.Screen name="Details" component={Details} options={{ title: 'Detalhes da Tarefa' }} />
+          <Stack.Screen
+            name="AddTask"
+            component={AddTask}
+            options={{
+              title: 'Adicionar Tarefa',
+              headerStyle: { backgroundColor: '#e2c9a0' },
+              headerTitleStyle: { color: '#7c6f57', fontWeight: 'bold', fontSize: 22 },
+              headerTitleAlign: 'center',
+            }}
+          />
+          <Stack.Screen
+            name="Details"
+            component={Details}
+            options={{ title: 'Detalhes da Tarefa' }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </TaskProvider>

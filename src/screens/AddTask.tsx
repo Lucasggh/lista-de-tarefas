@@ -37,14 +37,14 @@ export default function AddTask({ navigation }: Props) {
           value={title}
           onChangeText={setTitle}
           style={styles.input}
-          placeholderTextColor="#888"
+          placeholderTextColor="#7c6f57"
         />
         <TextInput
           placeholder="Descrição (opcional)"
           value={description}
           onChangeText={setDescription}
           style={[styles.input, styles.textArea]}
-          placeholderTextColor="#888"
+          placeholderTextColor="#7c6f57"
           multiline
           numberOfLines={4}
         />
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5eee6',
+    backgroundColor: '#f3e9dc',
     padding: 16,
   },
   card: {
@@ -79,11 +79,12 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: '#e2c9a0',
-    backgroundColor: '#f9f6f2',
+    backgroundColor: '#f5eee6',
     marginBottom: 14,
     padding: 12,
     borderRadius: 8,
     fontSize: 16,
+    color: '#7c6f57',
   },
   textArea: {
     height: 80,
