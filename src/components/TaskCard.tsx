@@ -12,7 +12,7 @@ type Props = {
 
 export default function TaskCard({ task, onDelete, onToggle, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <View style={styles.card}>
       <View style={styles.content}>
         <Text
           style={[styles.title, task.completed && styles.completed]}
@@ -20,14 +20,17 @@ export default function TaskCard({ task, onDelete, onToggle, onPress }: Props) {
         >
           {task.completed ? '✓ ' : '○ '} {task.title}
         </Text>
-        {task.description ? (
-          <Text style={styles.description}>{task.description}</Text>
-        ) : null}
       </View>
-      <TouchableOpacity onPress={onDelete}>
-        <Ionicons name="trash-outline" size={24} color="red" />
-      </TouchableOpacity>
-    </TouchableOpacity>
+
+      <View style={styles.actions}>
+        <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+          <Ionicons name="information-circle-outline" size={24} color="#007AFF" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onDelete} style={styles.iconButton}>
+          <Ionicons name="trash-outline" size={24} color="red" />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
@@ -54,9 +57,11 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
     color: '#999',
   },
-  description: {
-    fontSize: 14,
-    color: '#555',
-    marginTop: 4,
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconButton: {
+    marginLeft: 10,
   },
 });

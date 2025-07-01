@@ -11,7 +11,7 @@ import uuid from 'react-native-uuid';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-import { TaskProvider } from './src/TaskContext/TaskContext';
+import { TaskProvider } from './src/context/TaskContext';
 
 export default function App() {
   return (

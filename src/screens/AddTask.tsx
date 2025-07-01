@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, Task } from '../type';
-import { useTasks } from '../TaskContext/TaskContext';
+import { useTasks } from '../context/TaskContext';
 import uuid from 'react-native-uuid';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddTask'>;

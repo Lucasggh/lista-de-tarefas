@@ -3,7 +3,7 @@ import { View, Text, Button, FlatList, Alert, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../type';
 import TaskCard from '../components/TaskCard';
-import { useTasks } from '../TaskContext/TaskContext';
+import { useTasks } from '../context/TaskContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
