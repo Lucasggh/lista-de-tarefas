@@ -16,8 +16,6 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 type FilterType = 'all' | 'completed' | 'pending';
 type SortType = 'created' | 'az' | 'za';
-// IMPORTS MESMOS DE ANTES...
-// Mesma estrutura de useState, useMemo, etc.
 
 export default function Home({ navigation }: Props) {
   const { tasks, toggleTask, removeTask, clearTasks } = useTasks();
