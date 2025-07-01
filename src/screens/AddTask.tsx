@@ -47,7 +47,7 @@ export default function AddTask({ navigation }: Props) {
           placeholderTextColor="#7c6f57"
           multiline
           numberOfLines={4}
-        />
+        />a
         <TouchableOpacity style={styles.button} onPress={handleSave}>
           <Text style={styles.buttonText}>Salvar</Text>
         </TouchableOpacity>
