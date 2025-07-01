@@ -5,6 +5,7 @@ import Home from './src/screens/Home';
 import AddTask from './src/screens/AddTask';
 import Details from './src/screens/Details';
 import { RootStackParamList } from './src/type';
+import uuid from 'react-native-uuid';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
