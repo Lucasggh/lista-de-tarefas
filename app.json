@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "lista-de-tarefas",
-    "slug": "lista-de-tarefas",
+    "name": "lista de tarefas",
+    "slug": "lista de tarefas",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconev2.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/iconev2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
