@@ -85,14 +85,14 @@ return (
         </Text>
       </TouchableOpacity>
 
-      {tasks.length > 0 && (
+      
         <TouchableOpacity
           onPress={handleClearAll}
           style={styles.controlButton}
         >
           <Text style={styles.controlText}>Limpar tudo</Text>
         </TouchableOpacity>
-      )}
+      
     </View>
 
     {/* Lista */}
