@@ -21,13 +21,12 @@ export default function TaskCard({ task, onDelete, onToggle, onPress }: Props) {
           {task.completed ? '✓ ' : '○ '} {task.title}
         </Text>
       </View>
-
       <View style={styles.actions}>
         <TouchableOpacity onPress={onPress} style={styles.iconButton}>
-          <Ionicons name="information-circle-outline" size={24} color="#007AFF" />
+          <Ionicons name="information-circle-outline" size={24} color="#7c6f57" />
         </TouchableOpacity>
         <TouchableOpacity onPress={onDelete} style={styles.iconButton}>
-          <Ionicons name="trash-outline" size={24} color="red" />
+          <Ionicons name="trash-outline" size={24} color="#b85c5c" />
         </TouchableOpacity>
       </View>
     </View>
@@ -36,14 +35,18 @@ export default function TaskCard({ task, onDelete, onToggle, onPress }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#f3e9dc',
     padding: 15,
-    borderRadius: 8,
-    marginBottom: 10,
+    borderRadius: 10,
+    marginBottom: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
   },
   content: {
     flex: 1,
@@ -52,16 +55,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#7c6f57',
   },
   completed: {
     textDecorationLine: 'line-through',
-    color: '#999',
+    color: '#b8a48a',
   },
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   iconButton: {
-    marginLeft: 10,
+    marginLeft: 8,
+    padding: 4,
   },
 });

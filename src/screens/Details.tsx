@@ -13,25 +13,44 @@ export default function DetailsScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{task.title}</Text>
-      <Text style={styles.description}>{task.description || 'Sem descrição.'}</Text>
+      <View style={styles.card}>
+        <Text style={styles.title}>{task.title}</Text>
+        <Text style={styles.description}>{task.description || 'Sem descrição.'}</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     flex: 1,
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5eee6',
+    padding: 16,
+  },
+  card: {
+    width: '100%',
+    maxWidth: 400,
+    backgroundColor: '#fdf6ed',
+    borderRadius: 12,
+    padding: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 10,
+    color: '#7c6f57',
+    marginBottom: 18,
+    alignSelf: 'center',
   },
   description: {
-    fontSize: 18,
-    color: '#444',
+    fontSize: 17,
+    color: '#7c6f57',
+    textAlign: 'center',
   },
 });

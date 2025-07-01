@@ -7,8 +7,6 @@ import Details from './src/screens/Details';
 import { RootStackParamList } from './src/type';
 import uuid from 'react-native-uuid';
 
-
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 import { TaskProvider } from './src/context/TaskContext';
@@ -18,7 +16,16 @@ export default function App() {
     <TaskProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} options={{ title: 'Tarefas' }} />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: 'Tarefas',
+              headerStyle: { backgroundColor: '#e2c9a0' },
+              headerTitleStyle: { color: '#7c6f57', fontWeight: 'bold', fontSize: 24 },
+              headerTitleAlign: 'center',
+            }}
+          />
           <Stack.Screen name="AddTask" component={AddTask} options={{ title: 'Adicionar Tarefa' }} />
           <Stack.Screen name="Details" component={Details} options={{ title: 'Detalhes da Tarefa' }} />
         </Stack.Navigator>
